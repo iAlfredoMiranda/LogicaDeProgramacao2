@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa 1</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        
+        var screen = document.querySelector('canvas');
+        var pen = screen.getContext('2d');
+
+        pen.fillStyle = '#fff';
+        pen.fillRect(0, 0, 600, 400);
+
+        pen.fillStyle = '#128722';
+        pen.fillRect(0, 0, 200, 400);
+
+        pen.fillStyle = '#bc1826';
+        pen.fillRect(400, 0, 200, 400);
+
+        pen.fillStyle = '#e1e50b';
+        pen.beginPath();
+        pen.moveTo(300, 200);
+        pen.lineTo(200, 400);
+        pen.lineTo(400, 400);
+        pen.fill();
+    
+        pen.fillStyle = '#074e9a';
+        pen.beginPath();
+        pen.arc(300, 150, 50, 0, 2* 3.14);
+        pen.fill();
+
+        </script>
+</body>
+</html>

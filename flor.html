@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower</title>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+
+<script>
+
+    var screen = document.querySelector('canvas');
+    var pen = screen.getContext('2d');
+    pen.fillStyle = 'darkgreen';
+    pen.fillRect(0, 0, 600, 400);
+
+    function drawCircle(x, y, raio, cor) {
+
+        pen.fillStyle = cor;
+        pen.beginPath();
+        pen.arc(x, y, raio, 0, 2 * Math.PI);
+        pen.fill();
+    }
+
+    function drawFlower(x, y) {
+
+        drawCircle(x, y+20, 10, 'blue');
+        drawCircle(x, y, 10, 'red');
+        drawCircle(x, y-20, 10, 'yellow');
+        drawCircle(x-20, y, 10, 'orange');
+        drawCircle(x+20, y, 10, 'black');
+    }
+
+    drawFlower(300, 200);
+
+</script>
+</body>
+</html>

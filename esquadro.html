@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esquadro</title>
+</head>
+<body>
+    <canvas width="600" height="600"></canvas>
+    <script>
+        
+        var screen = document.querySelector('canvas');
+        var pen = screen.getContext('2d');
+
+        function drawSquare(xa, ya, xc, yc, colors) {
+            pen.fillStyle = colors
+            pen.beginPath();
+            pen.moveTo(xa, ya);
+            pen.lineTo(xa, yc);
+            pen.lineTo(xc, yc);
+            pen.fill();
+
+            pen.fillStyle = 'white'
+            pen.beginPath();
+            pen.moveTo((6*xa + xc)/7, (9*ya + 5*yc)/14);
+            pen.lineTo((6*xa + xc)/7, (ya + 6*yc)/7);
+            pen.lineTo((5*xa + 9*xc)/14, (ya + 6*yc)/7);
+            pen.fill();
+            
+        }
+
+        drawSquare(50, 50, 400, 400, 'green')
+
+        </script>
+        
+</body>
+</html>

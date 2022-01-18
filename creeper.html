@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creeper</title>
+</head>
+<body>
+    <canvas width="600" height="600"></canvas>
+    <script>
+        
+        var screen = document.querySelector('canvas');
+        var pen = screen.getContext('2d');
+
+        pen.fillStyle = '#29680e';
+        pen.fillRect(100, 100, 350, 300);
+
+        pen.fillStyle = '#000';
+        pen.fillRect(145, 150, 90, 90);
+
+        pen.fillStyle = '#000';
+        pen.fillRect(305, 150, 90, 90);
+
+        pen.fillStyle = '#000';
+        pen.fillRect(235, 240, 70, 100);
+
+        pen.fillStyle = '#000';
+        pen.fillRect(305, 290, 40, 110);
+
+        pen.fillStyle = '#000';
+        pen.fillRect(198, 290, 40, 110);
+
+        </script>
+        
+</body>
+</html>
