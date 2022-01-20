@@ -1,0 +1,148 @@
+<canvas width="600" height="400"></canvas>
+<head>
+<h1 class="titulo">% de acertos</h1> 
+<h2 class="contador-display">0 %</h2>    
+</head>
+<script>
+    var count = 0;
+    let contador = document.querySelector(".contador-display");
+    var pontos = 0;
+    var conta = parseInt((pontos/count)*100);
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'white';
+    pincel.fillRect(0, 0, 600, 400);
+
+    let raio = 30;
+    var minx = 60;
+    var maxx = 540;
+    var miny = 60;
+    var maxy = 340;
+    
+    function getRandomArbitraryx(minx, maxx) {
+        return parseInt(Math.random() * (maxx - minx) + minx);
+    }
+    function getRandomArbitraryy(miny, maxy) {
+        return parseInt(Math.random() * (maxy - miny) + miny);
+}
+    var randomX = getRandomArbitraryx(minx, maxx);
+    var randomY = getRandomArbitraryx(miny, maxy);
+
+    var randomX2 = getRandomArbitraryx(minx, maxx);
+    var randomY2 = getRandomArbitraryx(miny, maxy);
+
+    var randomX3 = getRandomArbitraryx(minx, maxx);
+    var randomY3 = getRandomArbitraryx(miny, maxy);
+
+    var randomX4 = getRandomArbitraryx(minx, maxx);
+    var randomY4 = getRandomArbitraryx(miny, maxy);
+
+    
+
+
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function desenhaCirculo2(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function desenhaCirculo3(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function desenhaCirculo4(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    desenhaCirculo(randomX,randomY, raio, 'red');
+    desenhaCirculo2(randomX2,randomY2, raio, 'blue'); 
+    desenhaCirculo3(randomX3,randomY3, raio, 'red');
+    desenhaCirculo4(randomX4,randomY4, raio, 'blue');
+
+    var clearCircle = function(x, y, raio)
+    {
+        pincel.save();
+        pincel.globalCompositeOperation = 'destination-out';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI, false);
+        pincel.fill();
+        pincel.restore();
+    };
+
+
+    function dispara(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        if (x>=randomX-30 && x<= randomX+30 && y>=randomY-30 && y<= randomY+30) {
+            console.log('acertei');
+            clearCircle(randomX,randomY,raio+1);
+            count++
+            pontos++
+            contador.innerHTML = parseInt((pontos/count)*100);;
+            randomX = getRandomArbitraryx(minx, maxx);
+            randomY = getRandomArbitraryx(miny, maxy);
+            desenhaCirculo(randomX,randomY, raio, 'red');
+         }else if (x>=randomX2-30 && x<= randomX2+30 && y>=randomY2-30 && y<= randomY2+30) {
+            console.log('acertei');
+            clearCircle(randomX2,randomY2,raio+1);
+            count++
+            pontos++
+            contador.innerHTML = parseInt((pontos/count)*100);
+            randomX2 = getRandomArbitraryx(minx, maxx);
+            randomY2 = getRandomArbitraryx(miny, maxy);
+            desenhaCirculo2(randomX2,randomY2, raio, 'blue');
+             
+        } else if (x>=randomX3-30 && x<= randomX3+30 && y>=randomY3-30 && y<= randomY3+30) {
+            console.log('acertei');
+            clearCircle(randomX3,randomY3,raio+1);
+            count++
+            pontos++
+            contador.innerHTML = parseInt((pontos/count)*100);
+            randomX3 = getRandomArbitraryx(minx, maxx);
+            randomY3 = getRandomArbitraryx(miny, maxy);
+            desenhaCirculo3(randomX3,randomY3, raio, 'blue');
+             
+        }else if (x>=randomX4-30 && x<= randomX4+30 && y>=randomY4-30 && y<= randomY4+30) {
+            console.log('acertei');
+            clearCircle(randomX4,randomY4,raio+1);
+            count++
+            pontos++
+            contador.innerHTML = parseInt((pontos/count)*100);
+            randomX4 = getRandomArbitraryx(minx, maxx);
+            randomY4 = getRandomArbitraryx(miny, maxy);
+            desenhaCirculo4(randomX4,randomY4, raio, 'blue');
+             
+        }else {
+            console.log('errei')
+            count++
+            console.log(parseInt((pontos/count)*100))
+            contador.innerHTML = parseInt((pontos/count)*100);
+        }
+    }
+
+
+
+    tela.onclick = dispara;
+    
+
+</script>
